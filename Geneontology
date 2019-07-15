@@ -1,2 +1,9 @@
+mport networkx
+import obonet
 
-gdfgdgsgd
+# Read the taxrank ontology
+url = 'http://purl.obolibrary.org/obo/go/go-basic.obo'
+graph = obonet.read_obo(url)
+
+# Number of nodes
+len(graph)
