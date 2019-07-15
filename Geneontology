@@ -7,3 +7,10 @@ graph = obonet.read_obo(url)
 
 # Number of nodes
 len(graph)
+
+graph.number_of_edges()
+# Number of nodes
+len(graph)
+
+# Number of edges
+graph.number_of_edges()
