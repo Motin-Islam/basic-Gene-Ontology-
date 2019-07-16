@@ -83,4 +83,14 @@ g.addEdge(51640, 51641)
 g.addEdge(51641, 51179)
 g.addEdge(51179, 8150)
 
+print("\nplease enter the node from where you want to start traversing:")
+b=int(input())
+print("\nFollowing is Breadth First Traversal"
+      " (starting from vertex 2):")
+g.BFS(b)
 
+print("\nplease enter the node you want to search:")
+
+a=int(input())
+
+g.BFS1(a)
