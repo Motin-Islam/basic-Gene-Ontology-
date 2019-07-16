@@ -62,4 +62,25 @@ class Graph:
                     visited[i] = True
         if(t==0):
           print(a, "  is not in the list")
+     g = Graph()
+g.addEdge(1, 48308)
+g.addEdge(1, 48301)
+g.addEdge(48308, 6996)
+g.addEdge(6996, 16043)
+g.addEdge(16043, 9981)
+g.addEdge(16043, 71840)
+
+g.addEdge(9981, 8150)
+g.addEdge(71840, 8150)
+g.addEdge(3, 8150)
+g.addEdge(48311, 7005)
+g.addEdge(48311, 51646)
+g.addEdge(7005, 6996)
+
+g.addEdge(2, 7005)
+g.addEdge(51646, 51640)
+g.addEdge(51640, 51641)
+g.addEdge(51641, 51179)
+g.addEdge(51179, 8150)
+
 
