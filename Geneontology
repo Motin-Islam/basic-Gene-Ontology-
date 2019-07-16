@@ -1,16 +1,11 @@
-mport networkx
-import obonet
+class Graph:
 
-# Read the taxrank ontology
-url = 'http://purl.obolibrary.org/obo/go/go-basic.obo'
-graph = obonet.read_obo(url)
+    # Constructor
+    def __init__(s):
 
-# Number of nodes
-len(graph)
+        # default dictionary to store graph
+        s.graph = defaultdict(list)
 
-graph.number_of_edges()
-# Number of nodes
-len(graph)
-
-# Number of edges
-graph.number_of_edges()
+    # function to add an edge to graph
+    def addEdge(a, u, v):
+        s.graph[u].append(v)
