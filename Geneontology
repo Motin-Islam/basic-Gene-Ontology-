@@ -32,3 +32,34 @@ class Graph:
                 if visited[i] == False:
                     queue.append(i)
                     visited[i] = True
+                    
+     def BFS1(self, a):
+
+        s1=1
+        visited = [False] * (len(self.graph))
+
+        # Create a queue for BFS
+        queue = []
+
+        queue.append(s1)
+        visited[s1] = True
+
+        while queue:
+            t = 0
+            s1 = queue.pop(0)
+
+            if(s1==a):
+              print(a,"  is  in the list")
+              t=1
+              break
+
+
+
+            for i in self.graph[s1]:
+                print(s1)
+                if visited[i] == False:
+                    queue.append(i)
+                    visited[i] = True
+        if(t==0):
+          print(a, "  is not in the list")
+
