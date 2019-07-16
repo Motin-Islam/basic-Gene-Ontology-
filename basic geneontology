@@ -1,0 +1,56 @@
+import networkx
+import obonet
+
+# Read the taxrank ontology
+url = 'http://purl.obolibrary.org/obo/go/go-basic.obo'
+graph = obonet.read_obo(url)
+
+# Number of nodes
+len(graph)
+
+# Number of edges
+graph.number_of_edges()
+# Number of nodes
+len(graph)
+
+# Number of edges
+graph.number_of_edges()
+
+# Check if the ontology is a DAG
+networkx.is_directed_acyclic_graph(graph)
+
+# Mapping from term ID to name
+id_to_name = {id_: data.get('name') for id_, data in graph.nodes(data=True)}
+id_to_name['TAXRANK:0000006']  # TAXRANK:0000006 is species
+
+# Find all superterms of species. Note that networkx.descendants gets
+# superterms, while networkx.ancestors returns subterms.
+networkx.descendants(graph, 'TAXRANK:0000006')
+ef read_obo(path_or_file):
+    #with open_read_file(path_or_file) as fp:#
+    with open(path_or_file, 'r') as fp:
+        ontology = Ontology.read(fp)
+
+    graph = networkx.MultiDiGraph(
+        name=ontology.ontology,
+        typedefs=ontology.typedefs,
+        instances=ontology.instances,
+        **ontology.tags)
+
+    edge_tuples = []
+    for term in ontology.terms:
+        if term.is_obsolete:
+            continue
+
+        graph.add_node(term)
+
+        for target_term in term.is_a:
+            edge_tuples.append((term, 'is_a', ontology.terms[target_term]))
+
+        for relationship in term.relationships:
+            edge_tuples.append((term, relationship.type, ontology.terms[relationship.target_term]))
+
+    for term_a, type_, term_b in edge_tuples:
+        graph.add_edge(term_a, term_b, key=type_)
+
+    return ontology, graph
