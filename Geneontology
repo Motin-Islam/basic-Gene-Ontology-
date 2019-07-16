@@ -1,11 +1,13 @@
+from collections import defaultdict
+import collections
 class Graph:
 
     # Constructor
-    def __init__(s):
+    def __init__(self):
 
         # default dictionary to store graph
-        s.graph = defaultdict(list)
+        self.graph = defaultdict(list)
 
     # function to add an edge to graph
-    def addEdge(a, u, v):
-        s.graph[u].append(v)
+    def addEdge(self, u, v):
+        self.graph[u].append(v)
